@@ -1,5 +1,7 @@
+//CRUD operation Logics
 const TaskDetails = require('../models/todoDetails')
 
+//To the all datas in the Table
 const getAllTasks = async () => {
     try {
         let result = await TaskDetails.findAll({
@@ -10,6 +12,7 @@ const getAllTasks = async () => {
     }
 }
 
+//To get a specific data from the table
 const getTaskById = async (taskId) => {
     try {
         let result = await TaskDetails.findOne({
@@ -23,6 +26,7 @@ const getTaskById = async (taskId) => {
     }
 }
 
+//To create or insert a new data into the table
 const createTask = async (data) => {
     try {
         let result = await TaskDetails.create({ task_name: data }, {
@@ -34,6 +38,7 @@ const createTask = async (data) => {
     }
 }
 
+//To update the existing data in the table
 const updateTask = async (taskID, data) => {
     try {
         let result = await TaskDetails.update({ task_name: data }, {
@@ -48,6 +53,7 @@ const updateTask = async (taskID, data) => {
     }
 }
 
+//To delete the existing data from the table
 const deleteTask = async (taskId) => {
     try {
         let result = await TaskDetails.destroy({
@@ -61,6 +67,7 @@ const deleteTask = async (taskId) => {
     }
 }
 
+//Exporting all the above functions
 module.exports = {
     getAllTasks: getAllTasks,
     getTaskById: getTaskById,

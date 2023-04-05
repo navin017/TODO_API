@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const taskDetails = require('./dao/todoDetails');
 
-
+//"/getAllTasks" Route to get the all tasks in table
 app.get("/getAllTasks", async (req, res) => {
     let result = {
         code: 200,
@@ -19,6 +19,7 @@ app.get("/getAllTasks", async (req, res) => {
                 code: 200,
             }
         }
+        //the else statement is to indicate server error
         else {
             result = {
                 code: 500,
@@ -40,6 +41,7 @@ app.get("/getAllTasks", async (req, res) => {
     }
 });
 
+//"/getTaskById" Route to get the tasks in table by ID
 app.get("/getTaskById", async (req, res) => {
     let result = {
         code: 200,
@@ -78,6 +80,7 @@ app.get("/getTaskById", async (req, res) => {
     }
 });
 
+//"/createTask" Route to insert new data to the table
 app.get("/createTask", async (req, res) => {
     let result = {
         code: 200,
@@ -115,6 +118,7 @@ app.get("/createTask", async (req, res) => {
     }
 });
 
+//"/updateTask" Route to update existing data to the table
 app.get("/updateTask", async (req, res) => {
     try {
         let taskId = req.query.taskId;
@@ -148,6 +152,7 @@ app.get("/updateTask", async (req, res) => {
     }
 });
 
+//"/deleteTask" Route to delete a existing data in the table
 app.get("/deleteTask", async (req, res) => {
     try {
         let taskId = req.query.taskId;
@@ -182,6 +187,7 @@ app.get("/deleteTask", async (req, res) => {
     }
 });
 
+//port 
 const server = app.listen(5001, function () {
     console.log("Listening on port %s...", server.address().port);
 }) 

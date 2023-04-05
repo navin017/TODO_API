@@ -1,3 +1,4 @@
+//the models of the data's in the table
 const { Sequelize, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/db-connect');
